@@ -18,3 +18,8 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+function dragDrop(draggedObjLocator, pixelsFromLeft, pixelsFromTop) {
+  cy.get(draggedObjLocator).trigger('mousedown', { which: 1 })
+    .trigger('mousemove', { clientX: pixelsFromLeft, clientY: pixelsFromTop })
+    .trigger('mouseup', { force: true })
+}
